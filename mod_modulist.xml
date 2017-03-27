@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/module-install.dtd">
+<install version="1.5" type="module" method ="upgrade" client="site">
+	<name>ModuList Module</name>
+	<author>José A. Cidre Bardelás</author>
+	<authorEmail>info@joomlaempresa.com</authorEmail>
+	<authorUrl>http://joomlaempresa.es</authorUrl>
+	<creationDate>09-2011</creationDate>
+	<copyright>Copyright (C) 2011 Joomla Empresa e José A. Cidre Bardelás - All Rights Reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<version>0.5.0</version>
+	<description>MOD_ML_DESCRICOM</description>
+	<files>
+		<filename module="mod_modulist">mod_modulist.xml</filename>
+		<filename>mod_modulist.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>paginacom_ajax.php</filename>
+		<folder>tmpl</folder>
+		<folder>elements</folder>
+		<folder>imagens</folder>
+	</files>
+	<languages folder="idiomas">
+		<language tag="en-GB">en-GB.mod_modulist.ini</language>
+		<language tag="gl-ES">gl-ES.mod_modulist.ini</language>
+		<language tag="ca-ES">ca-ES.mod_modulist.ini</language>
+		<language tag="es-ES">es-ES.mod_modulist.ini</language>
+		<language tag="pt-PT">pt-PT.mod_modulist.ini</language>
+		<language tag="pt-BR">pt-BR.mod_modulist.ini</language>
+	</languages>
+	<params addpath="/modules/mod_modulist/elements">
+		<param name="@spacer" type="spacer" default="MOD_ML_ITEMS_TIT" />
+		<param name="elementos" type="text" size="6" default="5" label="MOD_ML_ITEMS" description="MOD_ML_ITEMS_DET" />
+		<param name="elementos_pagina" type="text" size="6" default="5" label="MOD_ML_PAGECOUNT" description="MOD_ML_PAGECOUNT_DET" />
+		<param name="tipo_elementos" type="list" default="recentes" label="MOD_ML_ITEMTYPE" description="MOD_ML_ITEMTYPE_DET">
+			<option value="recentes">MOD_ML_MOSTRECENT</option>
+			<option value="populares">MOD_ML_MOSTPOPULAR</option>
+			<option value="aleatorios">MOD_ML_RANDOM</option>
+		</param>
+		<param name="ordering" type="list" default="c_dsc" label="MOD_ML_ORDER" description="MOD_ML_ORDER_TIT">
+			<option value="c_dsc">MOD_ML_RECENTLYADDED</option>
+			<option value="m_dsc">MOD_ML_RECENTLYMODIFIED</option>
+		</param>
+		<param name="secid" type="text" default="" label="MOD_ML_SECID" description="MOD_ML_SECID_DET" />
+		<param name="catid" type="text" default="" label="MOD_ML_CATID" description="MOD_ML_CATID_DET" />
+		<param name="@spacer" type="spacer" default="MOD_ML_AJAXPAGCONFIG_TIT"/>
+		<param name="amplo_rolagem" type="text" size="6" default="300" label="MOD_ML_SLIDERWIDTH" description="MOD_ML_SLIDERWIDTH_DET" />
+		<param name="efecto_transicom" type="list" default="0" label="MOD_ML_TRANS" description="MOD_ML_TRANS_DET">
+			<option value="0">MOD_ML_SLIDE</option>
+			<option value="1">MOD_ML_FADE</option>
+		</param>
+		<param name="tempo_fundido" type="text" size="6" default="500" label="MOD_ML_FADETIME" description="MOD_ML_FADETIME_DET" />
+		<param name="modo_slide" type="list" default="horizontal" label="MOD_ML_SLIDEMODE" description="MOD_ML_SLIDEMODE_DET">
+			<option value="horizontal">MOD_ML_SLIDEMODEHOR</option>
+			<option value="vertical">MOD_ML_SLIDEMODEVER</option>
+		</param>
+		<param name="tipo_slide" type="list" default="Expo.easeOut" label="MOD_ML_SLIDETYPE" description="MOD_ML_SLIDETYPE_DET">
+			<option value="linear">MOD_ML_SLIDETYPELINEAR</option>
+			<option value="Bounce.easeOut">MOD_ML_SLIDETYPEBOUNCE1</option>
+			<option value="Elastic.easeOut">MOD_ML_SLIDETYPEELASTIC1</option>
+			<option value="Expo.easeOut">MOD_ML_SLIDETYPEEXPO1</option>
+			<option value="Back.easeOut">MOD_ML_SLIDETYPEBACK1</option>
+		</param>
+		<param name="@spacer" type="spacer" default="MOD_ML_ASPECT_TIT"/>
+		<param name="texto_descricom" type="textarea" rows="5" cols="30" default="" label="MOD_ML_DESCTEXT" description="MOD_ML_DESCTEXT_DET" />
+		<param name="mostrar_taboa" type="list" default="1" label="MOD_ML_DISPLAYFORMAT" description="MOD_ML_DISPLAYFORMAT_DET">
+			<option value="1">MOD_ML_TABLE</option>
+			<option value="0">MOD_ML_LIST</option>
+		</param>
+		<param name="mostrar_secom" type="list" default="1" label="MOD_ML_SHOWSEC" description="MOD_ML_SHOWSEC_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="mostrar_categoria" type="list" default="1" label="MOD_ML_SHOWCAT" description="MOD_ML_SHOWCAT_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="mostrar_autor" type="list" default="1" label="MOD_ML_SHOWAUTHOR" description="MOD_ML_SHOWAUTHOR_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="mostrar_datacria" type="list" default="1" label="MOD_ML_SHOWDATECREATED" description="MOD_ML_SHOWDATECREATED_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="mostrar_datamod" type="list" default="1" label="MOD_ML_SHOWDATEMODIFIED" description="MOD_ML_SHOWDATEMODIFIED_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="mostrar_icone" type="list" default="1" label="MOD_ML_SHOWICON" description="MOD_ML_SHOWICON_DET">
+			<option value="1">YES</option>
+			<option value="0">NO</option>
+		</param>
+		<param name="caracteres_artigo" type="text" size="6" default="" label="MOD_ML_MAXCHARARTICLE" description="MOD_ML_MAXCHARARTICLE_DET" />
+		<param name="caracteres_secom" type="text" size="6" default="" label="MOD_ML_MAXCHARSEC" description="MOD_ML_MAXCHARSEC_DET" />
+		<param name="caracteres_categoria" type="text" size="6" default="" label="MOD_ML_MAXCHARCAT" description="MOD_ML_MAXCHARCAT_DET" />
+		<param name="caracteres_autor" type="text" size="6" default="" label="MOD_ML_MAXCHARAUTHOR" description="MOD_ML_MAXCHARAUTHOR_DET" />
+		<param name="caracteres_datacria" type="text" size="6" default="" label="MOD_ML_MAXCHARDATECREATED" description="MOD_ML_MAXCHARDATECREATED_DET" />
+		<param name="caracteres_datamod" type="text" size="6" default="" label="MOD_ML_MAXCHARDATEMODIFIED" description="MOD_ML_MAXCHARDATEMODIFIED_DET" />
+		<param name="alinha_taboa" type="list" default="centro" label="MOD_ML_TABLEALIGN" description="MOD_ML_TABLEALIGN_DET">
+			<option value="esquerda">LEFT</option>
+			<option value="centro">CENTER</option>
+			<option value="direita">RIGHT</option>
+		</param>
+		<param name="margem_sup_taboa" type="text" size="6" default="5" label="MOD_ML_TOP" description="MOD_ML_TOP_DET" />
+		<param name="margem_inf_taboa" type="text" size="6" default="5" label="MOD_ML_BOTTOM" description="MOD_ML_BOTTOM_DET" />
+		<param name="amplo_taboa" type="text" size="6" default="" label="MOD_ML_TABLEWIDTH" description="MOD_ML_TABLEWIDTH_DET" />
+		<param name="amplo_cela_artigo" type="text" size="6" default="" label="MOD_ML_ARTICLECELLWIDTH" description="MOD_ML_ARTICLECELLWIDTH_DET" />
+		<param name="amplo_cela_secom" type="text" size="6" default="" label="MOD_ML_SECCELLWIDTH" description="MOD_ML_SECCELLWIDTH_DET" />
+		<param name="amplo_cela_categoria" type="text" size="6" default="" label="MOD_ML_CATCELLWIDTH" description="MOD_ML_CATCELLWIDTH_DET" />
+		<param name="amplo_cela_autor" type="text" size="6" default="" label="MOD_ML_AUTHORCELLWIDTH" description="MOD_ML_AUTHORCELLWIDTH_DET" />
+		<param name="amplo_cela_datacria" type="text" size="6" default="" label="MOD_ML_DATECREATEDCELLWIDTH" description="MOD_ML_DATECREATEDCELLWIDTH_DET" />
+		<param name="amplo_cela_datamod" type="text" size="6" default="" label="MOD_ML_DATEMODIFIEDCELLWIDTH" description="MOD_ML_DATEMODIFIEDCELLWIDTH_DET" />
+		<param name="amplo_cela_icone" type="text" size="6" default="" label="MOD_ML_ICONCELLWIDTH" description="MOD_ML_ICONCELLWIDTH_DET" />
+		<param name="cor_taboa_fondo" type="colorpicker" default="#FFFFFF" label="MOD_ML_TABLEBACKCOLOR" description="MOD_ML_TABLEBACKCOLOR_DET" />
+		<param name="cor_cabecalho_fondo" type="colorpicker" default="#444444" label="MOD_ML_TABLETITBACKCOLOR" description="MOD_ML_TABLETITBACKCOLOR_DET" />
+		<param name="cor_cabecalho_texto" type="colorpicker" default="#FFFFFF" label="MOD_ML_TABLETITCOLOR" description="MOD_ML_TABLETITCOLOR_DET" />
+		<param name="cor_celas_fondo" type="colorpicker" default="#C1D2E6" label="MOD_ML_TABLECELLSBACKCOLOR" description="MOD_ML_TABLECELLSBACKCOLOR_DET" />
+		<param name="cor_celas_texto" type="colorpicker" default="#000000" label="MOD_ML_TABLECELLSCOLOR" description="MOD_ML_TABLECELLSCOLOR_DET" />
+		<param name="cor_celas_texto_pairado" type="colorpicker" default="#FFFFFF" label="MOD_ML_TABLECELLSMOVERCOLOR" description="MOD_ML_TABLECELLSMOVERCOLOR_DET" />
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="1" label="CACHING" description="SELECT WHETHER TO CACHE THE CONTENT OF THIS MODULE">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="900" label="CACHE TIME" description="THE TIME BEFORE THE MODULE IS RECACHED" />
+	</params>
+</install>
